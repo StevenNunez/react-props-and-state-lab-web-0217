@@ -11,8 +11,11 @@ describe('<App />', function () {
   describe('Filters', function () {
     it('should change filter type', function () {
       const wrapper = shallow(<App />);
-      wrapper.find(Filters).props().onChangeType('micropig');
-      expect(wrapper.state().filters.type).toEqual('micropig');
+      let filterComponent = wrapper.find(Filters)
+      let fComponentProps = filterComponent.props()
+      fComponentProps.onChangeType('micropig');
+      let appState = wrapper.state()
+      expect(appState.filters.type).toEqual('micropig');
     });
   });
 
